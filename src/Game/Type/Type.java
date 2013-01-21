@@ -3,10 +3,27 @@ package Game.Type;
 public class Type {
 
 	public static Type BASE_TYPE = new Type();
-	public static Type CARD_SLOT = new TypeCardSlot();
-	public static Type CARD = new TypeCard();
-	public static Type PLAYER = new TypePlayer();
-	public static Type GAME = new TypeGame();
+	
+	public static Type CARD = new LinkedType("Card",BASE_TYPE);
+	
+	public static Type CARD_GENERAL = new LinkedType("General",CARD);
+	public static Type CARD_ROLE = new LinkedType("Role",CARD);
+	public static Type CARD_GAME = new LinkedType("Game",CARD);
+	
+	public static Type EVENT = new LinkedType("Event",BASE_TYPE);
+	
+	public static Type EVENT_PHASE = new LinkedType("Phase",EVENT);
+	public static Type EVENT_ENTITY = new LinkedType("Phase",EVENT);
+	public static Type EVENT_DECISION = new LinkedType("Decision",EVENT);
+	public static Type EVENT_DECISION_IDLE = new LinkedType("Idle",EVENT_DECISION);
+	
+	public static Type ENTITY = new LinkedType("Entity",BASE_TYPE);
+	
+	public static Type ENTITY_GAME = new LinkedType("Game",ENTITY);
+	public static Type ENTITY_CARD = new LinkedType("Card",ENTITY);
+	public static Type ENTITY_PLAYER = new LinkedType("Player",ENTITY);
+	public static Type ENTITY_SLOT = new LinkedType("Slot",ENTITY);
+	
 	
 	public String toString()
 	{
@@ -15,13 +32,7 @@ public class Type {
 	
 	public String fullName()
 	{
-		String result = "";
-		if(this.getClass().getSuperclass() != null)
-			result += this.getClass().getSuperclass().cast(this).toString() + ".";
-		
-		result += toString();
-		
-		return result;
+		return toString();
 	}
 	
 	public boolean parentOf(Type td)
@@ -33,4 +44,6 @@ public class Type {
 	{
 		return td.parentOf(this);
 	}
+	
+	public String description = "";
 }

@@ -61,4 +61,23 @@ public class Entity extends ArrayList<Entity> implements IEntityContainer{
 	
 	public Entity()
 	{}
+
+	@Override
+	public String nameOfChild(IEntityContainer iec) {
+		if(children.values().contains(iec))
+		{
+			for(String name : children.keySet())
+			{
+				if(children.get(name) == iec)return name;
+			}
+		}
+		
+		return null;
+	}
+	
+	public String name()
+	{
+		if(parent == null)return null;
+		return parent().nameOfChild(this);
+	}
 }

@@ -22,24 +22,24 @@ public class GameEntity extends Entity{
 	public void setupCommon()
 	{
 		CardSlotEntity entity = new CardSlotEntity();
-		entity.type = Type.CARD_SLOT;
+		entity.type = Type.ENTITY_SLOT;
 		entity.viewable = false;
 		setChild("drawDeck", entity);
 		
 		entity = new CardSlotEntity();
-		entity.type = Type.CARD_SLOT;
+		entity.type = Type.ENTITY_SLOT;
 		setChild("discardDeck", entity);
 		
 		entity = new CardSlotEntity();
-		entity.type = Type.CARD_SLOT;
+		entity.type = Type.ENTITY_SLOT;
 		setChild("table", entity);
 		
 		entity = new CardSlotEntity();
-		entity.type = Type.CARD_SLOT;
+		entity.type = Type.ENTITY_SLOT;
 		setChild("generalDeck", entity);
 		
 		entity = new CardSlotEntity();
-		entity.type = Type.CARD_SLOT;
+		entity.type = Type.ENTITY_SLOT;
 		setChild("roleDeck", entity);
 		
 		int seat = 0;
@@ -50,7 +50,7 @@ public class GameEntity extends Entity{
 			PlayerEntity pe = new PlayerEntity();
 			pe.playerID = id;
 			pe.seatId = seat++;
-			pe.type = Type.PLAYER;
+			pe.type = Type.ENTITY_PLAYER;
 			
 			setChild("player"+id, pe);
 		}
@@ -64,10 +64,18 @@ public class GameEntity extends Entity{
 	public void step()
 	{
 		GameEvent ge = events.peek();
+		if(ge.triggerable())
+		{
+			int i =0;
+			while(rules.trigger(ge) && i<TRIGGER_DEPTH)
+			{
+				i++;
+				ge = events.peek();
+			}
+		}
 		
-		int i =0;
-		while(rules.trigger(ge) && i<TRIGGER_DEPTH)i++;
-		
-		events.pop().resolve();
+		ge = events.pop();
+		ge.resolve();
+		events.peek().children.addAll(0, ge.children);
 	}
 }

@@ -10,6 +10,8 @@ public interface IEntityContainer extends List<Entity>{
 	
 	IEntityContainer child(String name);
 	
+	String nameOfChild(IEntityContainer iec);
+	
 	void setParent(IEntityContainer ec);
 	
 	void setChild(String name, IEntityContainer ec);

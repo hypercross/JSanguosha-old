@@ -1,5 +1,7 @@
 package Game;
 
+import Game.Type.Type;
+
 public interface IActionSet {
 
 	boolean contains(IAction action);
@@ -8,4 +10,5 @@ public interface IActionSet {
 	
 	void exclude(IActionSet anotherSet);
 	
+	Type[] actionTypes();
 }
