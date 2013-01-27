@@ -10,9 +10,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class EntityInfoLabel extends Label{
 	
-	public EntityInfoLabel(CharSequence text, Entity entity) {
-		super(text, DefaultSkin.instance, "label");
+	Entity entity;
+	public EntityInfoLabel(Entity entity) {
+		super("", DefaultSkin.instance, "label");
 		this.addListener(new ClickRefreshListener(entity));
+		this.entity = entity;
 		updateFor(entity);
 	}
 
@@ -36,9 +38,14 @@ public class EntityInfoLabel extends Label{
 		this.pack();
 	}
 	
+	public void update()
+	{
+		updateFor(entity);
+	}
+	
 	private String list(Entity entity, String name)
 	{
-		String display = name + ":\n";
+		String display = name + ": ==========================\n";
 		for(int i = 0;i < entity.child(name).size(); i ++)
 			display += entity.child(name).get(i).toString() + "\n";
 		
@@ -48,7 +55,7 @@ public class EntityInfoLabel extends Label{
 	private void updateFor(GameEntity ge)
 	{
 		String display = ge.events.toString();
-		this.setText(display + list(ge,"drawDeck"));
+		this.setText(display + list(ge,"drawDeck") + list(ge,"discardDeck"));
 	}
 	
 	private class ClickRefreshListener extends ClickListener

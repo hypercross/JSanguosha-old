@@ -1,5 +1,6 @@
 package Test.event;
 
+import Game.Entity.CardEntity;
 import Game.Entity.GameEntity;
 import Game.Entity.PlayerEntity;
 import Game.Type.LinkedType;
@@ -29,13 +30,15 @@ public class GameEventPhrase extends StagedGameEvent{
 			break;
 		case 2:
 			//draw cards
-			break;
+			sub.attach(GameEventCardMove.draw(pe));
+			return true;
 		case 3:
 			//play
 			break;
 		case 4:
 			//discard
-			break;
+			sub.attach(GameEventCardMove.discard((CardEntity) pe.child("hand").get(0)));
+			return true;
 		}
 		
 		return false;

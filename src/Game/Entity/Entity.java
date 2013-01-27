@@ -36,6 +36,12 @@ public class Entity extends ArrayList<Entity> implements IEntityContainer{
 
 	@Override
 	public void setChild(String name, IEntityContainer ec) {
+		if(ec == null)
+		{
+			children.remove(name);
+			return;
+		}
+		
 		ec.setName(name);
 		children.put(name, ec);
 		ec.setParent(this);

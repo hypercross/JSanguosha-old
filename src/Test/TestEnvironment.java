@@ -40,7 +40,11 @@ public class TestEnvironment extends Environment{
 		if(slot.name().equals("drawDeck"))
 		{
 			for(int i =0;i<5;i++)
-				slot.add(new CardEntity(i, i, 'S', cards[i]));
+			{
+				CardEntity ce = new CardEntity(i, i, 'S', cards[i]);
+				slot.add(ce);
+				ce.container = slot;
+			}
 			slot.shuffle();
 		}
 	}

@@ -8,6 +8,7 @@ public class CardEntity extends Entity{
 	public int cardID;	// id in the environment
 	public int number;	// poker number
 	public char suit;	// poker suit
+	public CardSlotEntity container;
 	
 	public CardEntity(int cardID, int number, char suit, ICard prototype)
 	{

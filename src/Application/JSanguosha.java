@@ -1,5 +1,7 @@
 package Application;
 
+import java.util.ArrayList;
+
 import Application.InGame.EntityInfoLabel;
 import Game.IPlayer;
 import Game.Entity.Entity;
@@ -17,7 +19,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class JSanguosha implements ApplicationListener {
     public Stage stage;
-    public static GameEntity ge;
+    GameEntity ge;
+    
+    ArrayList<EntityInfoLabel> labels = new ArrayList<EntityInfoLabel>(); 
 
 	public void create () {
     	 stage = new Stage();
@@ -36,20 +40,25 @@ public class JSanguosha implements ApplicationListener {
          //--------------------------------
          
          EntityInfoLabel game = 
-         new EntityInfoLabel("Blah",ge);
+         new EntityInfoLabel(ge);
          
+         labels.add(game);
          table.add(game);
          
          game.addListener(new ClickListener()
          {
         	 public void clicked (InputEvent event, float x, float y) {
         		 ge.step();
+        		 for(EntityInfoLabel label : labels)
+        			 label.update();
         	}
          });
          
          for(IPlayer ip : ge.players.players)
          {
-        	 table.add(new EntityInfoLabel("Blah", (Entity) ge.child("player" + ip.PlayerId())));
+        	 EntityInfoLabel label = new EntityInfoLabel((Entity) ge.child("player" + ip.PlayerId()));
+        	 labels.add(label);
+        	 table.add(label);
          }
     }
 
