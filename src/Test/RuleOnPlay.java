@@ -2,7 +2,6 @@ package Test;
 
 import Game.Entity.CardEntity;
 import Game.Entity.Entity;
-import Game.Type.Type;
 import GameEvent.GameEvent;
 import GameEvent.IRule;
 import Test.event.GameEventPlay;
@@ -20,7 +19,7 @@ public abstract class RuleOnPlay implements IRule{
 		if(ge.type.is(GameEventPlay.EVENT_PLAY) && ge.stage == 0)
 		{
 			GameEventPlay gep = (GameEventPlay)ge.parent;
-			if(watchedType( ((CardEntity)gep.playAction.getContext("Card", ge.theGame)).type ))
+			if((CardEntity)gep.playAction.getContext("Card", ge.theGame) == owner)
 			return onPlay(ge);
 		}
 		
@@ -32,8 +31,6 @@ public abstract class RuleOnPlay implements IRule{
 	{
 		return owner;
 	}
-
-	public abstract boolean watchedType(Type cardType);
 	
 	public abstract GameEvent onPlay(GameEvent ge);
 }

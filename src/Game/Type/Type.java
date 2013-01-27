@@ -12,8 +12,8 @@ public class Type {
 	
 	public static Type EVENT = new LinkedType("Event",BASE_TYPE);
 	
-	public static Type EVENT_PHASE = new LinkedType("Phase",EVENT);
-	public static Type EVENT_ENTITY = new LinkedType("Phase",EVENT);
+	public static Type EVENT_PHRASE = new LinkedType("Phrase",EVENT);
+	public static Type EVENT_ENTITY = new LinkedType("Entity",EVENT);
 	public static Type EVENT_DECISION = new LinkedType("Decision",EVENT);
 	public static Type EVENT_DECISION_IDLE = new LinkedType("Idle",EVENT_DECISION);
 	

@@ -12,6 +12,7 @@ public class Entity extends ArrayList<Entity> implements IEntityContainer{
 	IEntityContainer parent;
 	HashMap<String,IEntityContainer> children = new  HashMap<String,IEntityContainer>(); 
 	public Type type = Type.BASE_TYPE;
+	public String name = "";
 
 	@Override
 	public IEntityContainer parent() {
@@ -29,11 +30,15 @@ public class Entity extends ArrayList<Entity> implements IEntityContainer{
 	@Override
 	public void setParent(IEntityContainer ec) {
 		parent = ec;
+		if(ec.child(this.name) == null)
+			ec.setChild(this.name, this);
 	}
 
 	@Override
 	public void setChild(String name, IEntityContainer ec) {
+		ec.setName(name);
 		children.put(name, ec);
+		ec.setParent(this);
 	}
 
 	public boolean is(Type td)
@@ -61,23 +66,26 @@ public class Entity extends ArrayList<Entity> implements IEntityContainer{
 	
 	public Entity()
 	{}
-
-	@Override
-	public String nameOfChild(IEntityContainer iec) {
-		if(children.values().contains(iec))
-		{
-			for(String name : children.keySet())
-			{
-				if(children.get(name) == iec)return name;
-			}
-		}
-		
-		return null;
-	}
 	
 	public String name()
 	{
-		if(parent == null)return null;
-		return parent().nameOfChild(this);
+		return name;
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name; 
+	}
+	
+	public GameEntity root()
+	{
+		IEntityContainer parent = this;
+		while(parent.parent() != null)parent = parent.parent();
+		
+		if(parent instanceof GameEntity)
+			return (GameEntity)parent;
+		
+		return null;
+			
 	}
 }

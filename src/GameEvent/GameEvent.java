@@ -13,10 +13,15 @@ public abstract class GameEvent {
 	public GameEvent parent;
 	public GameEntity theGame;
 	public int stage;
+	public boolean resolvable = true;
+	public boolean triggerable = true;
+	public Type type = Type.BASE_TYPE;
 	
-	public boolean triggerable()
+	public String toString()
 	{
-		return true;
+		return type + " at stage " + stage + 
+				(resolvable ? ", On " : ", Off ") + 
+				(triggerable ? ", Triggering " : ", Bypassed ");
 	}
 	
 	public final void attach(GameEvent ge)
@@ -25,7 +30,6 @@ public abstract class GameEvent {
 		children.add(ge);
 	}
 	
-	public Type type = Type.BASE_TYPE;
 	
 	public GameEvent(Type type)
 	{

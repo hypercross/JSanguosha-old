@@ -1,7 +1,6 @@
 package Game.Entity;
 
 import Game.Environment;
-import Game.IEntityContainer;
 import Game.IPlayer;
 import Game.PlayerManager;
 import Game.Type.Type;
@@ -19,28 +18,41 @@ public class GameEntity extends Entity{
 	public GameEventTree events;
 	public RuleRegistry rules;
 	
+	public void init()
+	{
+		events = new GameEventTree();
+		rules = new RuleRegistry();
+		this.type = Type.ENTITY_GAME;
+		this.name = "the game";
+	}
+	
 	public void setupCommon()
 	{
 		CardSlotEntity entity = new CardSlotEntity();
 		entity.type = Type.ENTITY_SLOT;
 		entity.viewable = false;
 		setChild("drawDeck", entity);
+		environment.setupDeck(entity);
 		
 		entity = new CardSlotEntity();
 		entity.type = Type.ENTITY_SLOT;
 		setChild("discardDeck", entity);
+		environment.setupDeck(entity);
 		
 		entity = new CardSlotEntity();
 		entity.type = Type.ENTITY_SLOT;
 		setChild("table", entity);
+		environment.setupDeck(entity);
 		
 		entity = new CardSlotEntity();
 		entity.type = Type.ENTITY_SLOT;
 		setChild("generalDeck", entity);
+		environment.setupDeck(entity);
 		
 		entity = new CardSlotEntity();
 		entity.type = Type.ENTITY_SLOT;
 		setChild("roleDeck", entity);
+		environment.setupDeck(entity);
 		
 		int seat = 0;
 		for(IPlayer player : players.players)
@@ -55,27 +67,25 @@ public class GameEntity extends Entity{
 			setChild("player"+id, pe);
 		}
 		
-		for(IEntityContainer iec : children.values())
-			environment.setupDeck(iec);
-		
 		environment.setupGame(this);
 	}
 	
 	public void step()
 	{
 		GameEvent ge = events.peek();
-		if(ge.triggerable())
+		int i =0;
+		while(ge.triggerable && rules.trigger(ge) && i<TRIGGER_DEPTH)
 		{
-			int i =0;
-			while(rules.trigger(ge) && i<TRIGGER_DEPTH)
-			{
-				i++;
-				ge = events.peek();
-			}
+			i++;
+			ge.triggerable = false;
+			ge = events.peek();
 		}
 		
-		ge = events.pop();
-		ge.resolve();
-		events.peek().children.addAll(0, ge.children);
+		if(ge.resolvable)
+		{
+			ge.resolvable = false;
+			if(!ge.resolve())events.pop();
+		}
+		else events.pop();
 	}
 }

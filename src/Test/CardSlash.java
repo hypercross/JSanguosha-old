@@ -9,6 +9,7 @@ import Game.Type.Type;
 import GameEvent.GameEvent;
 import GameEvent.StagedGameEvent;
 import Test.event.GameEventDecision;
+import Test.event.GameEventPlay;
 
 public class CardSlash implements ICard{
 	public static Type typeCardSlash = new LinkedType("Slash",Type.CARD);
@@ -26,13 +27,11 @@ public class CardSlash implements ICard{
 		}
 
 		@Override
-		public boolean watchedType(Type cardType) {
-			return cardType.is(typeCardSlash);
-		}
-
-		@Override
 		public GameEvent onPlay(GameEvent ge) {
-			return null;
+			GameEventPlay gep = (GameEventPlay) ge;
+			return new GameEventPlaySlash(ge.theGame, 
+					(PlayerEntity)gep.playAction.getContext("from", ge.theGame),
+					(PlayerEntity)gep.playAction.getContext("to", ge.theGame));
 		}
 	}
 	
@@ -43,16 +42,20 @@ public class CardSlash implements ICard{
 
 		public GameEventPlaySlash(GameEntity theGame, PlayerEntity from, PlayerEntity to) {
 			super(typeEventSlash, theGame, new int[]{0,1});
-		}
+			this.from = from;
+			this.to   = to;
+		}	
 
 		@Override
-		public boolean onResolve(int stage) {
+		public boolean onResolve(int stage, GameEvent subEvent) {
 			switch(stage)
 			{
 			case 0:
-				
+				subEvent.attach(ged = new GameEventDecision(null, to));
 				break;
 			case 1:
+				if(ged.response.typeDesc().is(Type.EVENT_DECISION_IDLE))
+					;//attach damage event
 				break;
 			}
 			return false;
@@ -62,6 +65,7 @@ public class CardSlash implements ICard{
 
 	@Override
 	public void registerRules(CardEntity ce) {
+		ce.root().rules.register(new RuleOnPlaySlash(ce));
 	}
 
 }

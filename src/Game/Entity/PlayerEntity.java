@@ -3,7 +3,8 @@ package Game.Entity;
 @SuppressWarnings("serial")
 public class PlayerEntity extends Entity{
 
-	public int hp, maxHp, seatId, isAlive, playerID;
+	public int hp, maxHp, seatId, playerID;
+	public boolean isAlive;
 	
 	public PlayerEntity()
 	{

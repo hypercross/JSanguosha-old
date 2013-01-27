@@ -4,6 +4,7 @@ import Game.IAction;
 import Game.Entity.GameEntity;
 import Game.Type.LinkedType;
 import Game.Type.Type;
+import GameEvent.GameEvent;
 import GameEvent.StagedGameEvent;
 
 public class GameEventPlay extends StagedGameEvent
@@ -19,7 +20,7 @@ public class GameEventPlay extends StagedGameEvent
 	}
 	
 	@Override
-	public boolean onResolve(int stage) {
+	public boolean onResolve(int stage, GameEvent subEvent) {
 		return false;
 	}	
 };

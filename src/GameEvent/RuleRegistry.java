@@ -5,10 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class RuleRegistry
-{
-	public static RuleRegistry instance;
-	
-	private ArrayList<IRule> rules;
+{	
+	private ArrayList<IRule> rules = new ArrayList<IRule>();
 	public Comparator<IRule> sorter = new compare_by_entity_hierarchy();
 	
 	public boolean trigger(GameEvent ge)
