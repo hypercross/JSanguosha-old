@@ -15,15 +15,14 @@ public abstract class RuleOnPlay implements IRule{
 	}
 	
 	@Override
-	public GameEvent trigger(GameEvent ge) {
+	public boolean trigger(GameEvent ge) {
 		if(ge.type.is(GameEventPlay.EVENT_PLAY) && ge.stage == 0)
 		{
 			GameEventPlay gep = (GameEventPlay)ge.parent;
-			if((CardEntity)gep.playAction.getContext("Card", ge.theGame) == owner)
-			return onPlay(ge);
+			return onPlay(gep);
 		}
 		
-		return null;
+		return false;
 	}
 	
 	@Override
@@ -32,5 +31,5 @@ public abstract class RuleOnPlay implements IRule{
 		return owner;
 	}
 	
-	public abstract GameEvent onPlay(GameEvent ge);
+	public abstract boolean onPlay(GameEventPlay ge);
 }

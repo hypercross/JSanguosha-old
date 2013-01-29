@@ -2,6 +2,7 @@ package Application;
 
 import java.util.ArrayList;
 
+import Application.InGame.DefaultSkin;
 import Application.InGame.EntityInfoLabel;
 import Game.IPlayer;
 import Game.Entity.Entity;
@@ -15,6 +16,8 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class JSanguosha implements ApplicationListener {
@@ -60,6 +63,19 @@ public class JSanguosha implements ApplicationListener {
         	 labels.add(label);
         	 table.add(label);
          }
+         
+         table.row();
+         
+         TextField tf = 
+         new TextField("", DefaultSkin.instance);
+         
+         tf.setTextFieldListener(new TextFieldListener() {
+			public void keyTyped (TextField textField, char key) {
+				if (key == '\r') textField.setText("");
+			}
+		});
+         
+         table.add(tf).width(300);
     }
 
 	public void resize (int width, int height) {

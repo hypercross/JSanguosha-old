@@ -4,9 +4,9 @@ public interface IPlayer {
 
 	public int PlayerId();
 	
-	public void propose(IActionSet as);
+	public void propose(ActionSet as);
 	
 	public boolean isReady();
 	
-	public IAction getDecision();
+	public <T extends Action> T getDecision();
 }

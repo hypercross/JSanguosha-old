@@ -1,5 +1,6 @@
 package Test;
 
+import Game.ActionSet;
 import Game.ICard;
 import Game.Entity.CardEntity;
 import Game.Entity.GameEntity;
@@ -8,6 +9,7 @@ import Game.Type.LinkedType;
 import Game.Type.Type;
 import GameEvent.GameEvent;
 import GameEvent.StagedGameEvent;
+import Test.action.ActionPlay;
 import Test.event.GameEventDecision;
 import Test.event.GameEventPlay;
 
@@ -27,11 +29,14 @@ public class CardSlash implements ICard{
 		}
 
 		@Override
-		public GameEvent onPlay(GameEvent ge) {
-			GameEventPlay gep = (GameEventPlay) ge;
-			return new GameEventPlaySlash(ge.theGame, 
-					(PlayerEntity)gep.playAction.getContext("from", ge.theGame),
-					(PlayerEntity)gep.playAction.getContext("to", ge.theGame));
+		public boolean onPlay(GameEventPlay ge) {
+			
+			for(PlayerEntity target : ge.playAction.targets)
+			 ge.attachToTop(new GameEventPlaySlash(ge.theGame, 
+					ge.playAction.who,
+					target));
+			
+			return true;
 		}
 	}
 	
@@ -51,16 +56,32 @@ public class CardSlash implements ICard{
 			switch(stage)
 			{
 			case 0:
-				subEvent.attach(ged = new GameEventDecision(null, to));
+				ActionSetSingleType set = new ActionSetSingleType(ActionPlay.ACTION_PLAY);
+				set.getFilter().and(ActionSet.CARDIS_DODGE).and(ActionSet.TARGET_NONE);
+				subEvent.attachToTop(ged = new GameEventDecision( set , to));
 				break;
 			case 1:
-				if(ged.response.typeDesc().is(Type.EVENT_DECISION_IDLE))
+				if(ged.getResponse().typeDesc().is(Type.EVENT_DECISION_IDLE))
 					;//attach damage event
 				break;
 			}
 			return false;
 		}
 		
+	}
+	
+	public static class ActionSetSingleType extends ActionSet
+	{
+		Type type;
+		@Override
+		public Type[] actionTypes() {
+			return new Type[]{type};
+		}
+		
+		public ActionSetSingleType(Type type)
+		{
+			this.type = type;
+		}
 	}
 
 	@Override

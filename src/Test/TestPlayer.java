@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import Game.IAction;
-import Game.IActionSet;
+import Game.Action;
+import Game.ActionSet;
 import Game.IPlayer;
 import Game.Type.Type;
 
 public class TestPlayer implements IPlayer{
 
-	IAction response;
+	Action response;
 	int playerID = 0;
 	
 	public TestPlayer(int id)
@@ -25,17 +25,20 @@ public class TestPlayer implements IPlayer{
 	}
 
 	@Override
-	public void propose(IActionSet as) {
+	public  void propose(ActionSet as) {
 		System.out.println("Asking " + playerID + " for action:");
 		for(Type atype : as.actionTypes())
 		{
 			System.out.println(atype.fullName() + ": " + atype.description);
 		}
-			
-		System.out.print("ActionQuery>");
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		try {
-			response = new CommandAction(br.readLine());
+			while(!as.containsWithComposition(response))
+			{
+				System.out.print("ActionQuery>");
+				response = new CommandAction(br.readLine());
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -47,9 +50,10 @@ public class TestPlayer implements IPlayer{
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public IAction getDecision() {
-		return response;
+	public <T extends Action> T getDecision() {
+		return (T) response;
 	}
 
 }

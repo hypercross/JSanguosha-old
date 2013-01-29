@@ -4,7 +4,7 @@ import Game.Entity.Entity;
 
 public interface IRule {
 	
-	public GameEvent trigger(GameEvent ge);
+	public boolean trigger(GameEvent ge);
 	
 	public Entity owner();
 }

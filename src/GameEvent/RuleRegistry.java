@@ -16,12 +16,7 @@ public class RuleRegistry
 		
 		for(IRule rule : rules)
 		{
-			GameEvent childEvent = rule.trigger(ge);
-			if(childEvent != null)
-			{
-				triggered = true;
-				ge.attach(childEvent);
-			}
+			triggered |= rule.trigger(ge);
 		}
 		
 		return triggered;

@@ -2,14 +2,14 @@ package Test;
 
 import java.util.HashMap;
 
-import Game.IAction;
+import Game.Action;
 import Game.IEntityContainer;
 import Game.Entity.Entity;
 import Game.Entity.GameEntity;
 import Game.Type.LinkedType;
 import Game.Type.Type;
 
-public class CommandAction implements IAction{
+public class CommandAction extends Action{
 
 	HashMap<String,String> context = new HashMap<String,String>();
 	Type type;
@@ -21,7 +21,7 @@ public class CommandAction implements IAction{
 	
 	private void parse(String cmd)
 	{
-		String[] words = cmd.split(" +");
+		String[] words = cmd.split("[ ]+");
 		
 		boolean first = true;
 		for(String word : words)
@@ -44,7 +44,7 @@ public class CommandAction implements IAction{
 		return type;
 	}
 
-	@Override
+	
 	public Entity getContext(String name, GameEntity ge) {
 		
 		String[] names = context.get(name).split(".");
@@ -55,7 +55,7 @@ public class CommandAction implements IAction{
 		return (Entity) iec;
 	}
 
-	@Override
+	
 	public void setContext(String name, Entity something, GameEntity ge) {
 		String theName = something.name();
 		

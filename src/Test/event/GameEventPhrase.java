@@ -39,6 +39,9 @@ public class GameEventPhrase extends StagedGameEvent{
 			//discard
 			sub.attach(GameEventCardMove.discard((CardEntity) pe.child("hand").get(0)));
 			return true;
+		case 5:
+			//end phrase
+			break;
 		}
 		
 		return false;

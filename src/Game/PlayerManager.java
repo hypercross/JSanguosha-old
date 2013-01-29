@@ -16,7 +16,7 @@ public class PlayerManager {
 		return true;
 	}
 	
-	public IAction askForDecision(PlayerEntity thePlayer, IActionSet actions)
+	public <T extends Action> T askForDecision(PlayerEntity thePlayer, ActionSet actions)
 	{
 		IPlayer player = null;
 		for(IPlayer a : players)

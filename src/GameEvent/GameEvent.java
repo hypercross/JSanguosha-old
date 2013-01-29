@@ -30,6 +30,12 @@ public abstract class GameEvent {
 		children.add(ge);
 	}
 	
+	public final void attachToTop(GameEvent ge)
+	{
+		if(children.isEmpty())attach(ge);
+		else children.get(0).attachToTop(ge);
+	}
+	
 	
 	public GameEvent(Type type)
 	{

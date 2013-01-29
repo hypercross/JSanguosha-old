@@ -15,8 +15,8 @@ public class RuleClassical implements IRule {
 	}
 	
 	@Override
-	public GameEvent trigger(GameEvent ge) {
-		return null;
+	public boolean trigger(GameEvent ge) {
+		return false;
 	}
 
 	@Override
