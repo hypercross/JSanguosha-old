@@ -2,11 +2,15 @@ package Application;
 
 import java.util.ArrayList;
 
+import Application.InGame.CardEntityView;
 import Application.InGame.DefaultSkin;
 import Application.InGame.EntityInfoLabel;
+import Application.InGame.PlayerEntityView;
 import Game.IPlayer;
-import Game.Entity.Entity;
+import Game.Entity.CardEntity;
 import Game.Entity.GameEntity;
+import Game.Entity.PlayerEntity;
+import Test.CardSlash;
 import Test.TestEnvironment;
 import Test.TestPlayerManager;
 
@@ -47,6 +51,7 @@ public class JSanguosha implements ApplicationListener {
          
          labels.add(game);
          table.add(game);
+         table.row();
          
          game.addListener(new ClickListener()
          {
@@ -59,9 +64,13 @@ public class JSanguosha implements ApplicationListener {
          
          for(IPlayer ip : ge.players.players)
          {
-        	 EntityInfoLabel label = new EntityInfoLabel((Entity) ge.child("player" + ip.PlayerId()));
+        	 PlayerEntity player = (PlayerEntity) ge.child("player" + ip.PlayerId());
+        	 
+        	 EntityInfoLabel label = new EntityInfoLabel(player);
         	 labels.add(label);
         	 table.add(label);
+        	 
+        	 stage.addActor(new PlayerEntityView(player));
          }
          
          table.row();
@@ -76,6 +85,8 @@ public class JSanguosha implements ApplicationListener {
 		});
          
          table.add(tf).width(300);
+         
+         stage.addActor(new CardEntityView(new CardEntity(0, 0, 'C', new CardSlash())));
     }
 
 	public void resize (int width, int height) {

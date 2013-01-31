@@ -1,5 +1,7 @@
 package Application.InGame;
 
+import Test.CardSlash;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -34,5 +36,29 @@ public class DefaultSkin extends Skin{
 		tfs.background = this.getDrawable("banner");
 		tfs.fontColor = Color.LIGHT_GRAY;
 		this.add("default", tfs);
+		
+		Texture slash = new Texture("../JSanguosha/asset/slash.jpg");
+		
+		tr = new TextureRegion(slash);
+		tr.setRegion(0, 0, 93,130);
+		this.add(CardSlash.typeCardSlash.fullName(), tr);
+		
+		Texture glow = new Texture("../JSanguosha/asset/glow.png");
+		
+		tr = new TextureRegion(glow);
+		tr.setRegion(0, 0, 93,130);
+		this.add("card_glow", tr);
+
+		Texture char_mask = new Texture("../JSanguosha/asset/character.jpg");
+		
+		tr = new TextureRegion(char_mask);
+		tr.setRegion(0, 0, 200,290);
+		this.add("character_mask", tr);
+		
+		Texture default_general = new Texture("../JSanguosha/asset/default_general.jpg");
+		
+		tr = new TextureRegion(default_general);
+		tr.setRegion(0, 0, 200,290);
+		this.add("default_general", tr);
 	}
 }
