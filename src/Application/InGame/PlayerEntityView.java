@@ -28,8 +28,11 @@ public class PlayerEntityView extends Actor{
 	}
 	
 	public void draw (SpriteBatch batch, float parentAlpha) {
+		
 		batch.enableBlending();
 		batch.setColor(1f,1f,1f,1f);
+		
+		batch.setBlendFunction(GL10.GL_ZERO, GL10.GL_ONE_MINUS_SRC_ALPHA);
 		
 		batch.draw(mask,
 				this.getX(),
@@ -37,7 +40,7 @@ public class PlayerEntityView extends Actor{
 				this.getWidth() * this.getScaleX(),
 				this.getHeight() * this.getScaleY());
 		
-		batch.setBlendFunction(GL10.GL_ONE_MINUS_DST_COLOR, GL10.GL_ZERO);
+		batch.setBlendFunction(GL10.GL_ONE_MINUS_DST_ALPHA, GL10.GL_DST_ALPHA);
 		
 		batch.draw(general,
 				this.getX(),

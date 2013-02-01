@@ -2,6 +2,7 @@ package Application;
 
 import java.util.ArrayList;
 
+import Application.InGame.BackgroundView;
 import Application.InGame.CardEntityView;
 import Application.InGame.DefaultSkin;
 import Application.InGame.EntityInfoLabel;
@@ -27,12 +28,15 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 public class JSanguosha implements ApplicationListener {
     public Stage stage;
     GameEntity ge;
+    BackgroundView bv;
     
     ArrayList<EntityInfoLabel> labels = new ArrayList<EntityInfoLabel>(); 
 
 	public void create () {
     	 stage = new Stage();
          Gdx.input.setInputProcessor(stage);
+         bv = new BackgroundView();
+         stage.addActor(bv);
          
          Table table = new Table();
          table.setFillParent(true);
@@ -87,10 +91,12 @@ public class JSanguosha implements ApplicationListener {
          table.add(tf).width(300);
          
          stage.addActor(new CardEntityView(new CardEntity(0, 0, 'C', new CardSlash())));
+         
     }
 
 	public void resize (int width, int height) {
         stage.setViewport(width, height, true);
+        bv.setSize(width, height);
 }
 
 public void render () {
