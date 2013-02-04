@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Application.InGame.BackgroundView;
 import Application.InGame.CardEntityView;
+import Application.InGame.ClientControlView;
 import Application.InGame.DefaultSkin;
 import Application.InGame.EntityInfoLabel;
 import Application.InGame.PlayerEntityView;
@@ -91,7 +92,7 @@ public class JSanguosha implements ApplicationListener {
          table.add(tf).width(300);
          
          stage.addActor(new CardEntityView(new CardEntity(0, 0, 'C', new CardSlash())));
-         
+         stage.addActor(new ClientControlView((PlayerEntity) ge.child("player" + 0)));
     }
 
 	public void resize (int width, int height) {

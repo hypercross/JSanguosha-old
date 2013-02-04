@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
@@ -28,6 +29,10 @@ public class DefaultSkin extends Skin{
 		ls = new LabelStyle();
 		ls.font = new BitmapFont();
 		this.add("default", ls);
+		
+		ButtonStyle bs = new ButtonStyle();
+		bs.up = this.getDrawable("state");
+		this.add("default", bs);
 		
 		TextField.TextFieldStyle tfs = new TextField.TextFieldStyle();
 		tfs.font = ls.font;

@@ -2,6 +2,7 @@ package Application.InGame;
 
 import Game.Entity.Entity;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -10,10 +11,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 public abstract class CollapsedPropertyView <T extends Entity> extends Table{
 	
 	public T entity;
+	public Selectable sel;
+	
 	public CollapsedPropertyView(T entity)
 	{
 		this.entity = entity;
 		this.left();
+		this.sel = new Selectable(this);
 
 		Object[] objects = drawnObjects();
 		
@@ -30,4 +34,14 @@ public abstract class CollapsedPropertyView <T extends Entity> extends Table{
 	}
 
 	protected abstract Object[] drawnObjects();
+	
+	public void draw (SpriteBatch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
+//		batch.draw(DefaultSkin.instance.getRegion("state"),
+//				this.getX(),
+//				this.getY(),
+//				this.getWidth() * this.getScaleX(),
+//				this.getHeight() * this.getScaleY());
+		sel.draw(this, batch, parentAlpha);
+	}
 }
