@@ -1,0 +1,100 @@
+
+pack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+state
+  rotate: false
+  xy: 1, 29
+  size: 217, 80
+  split: 24, 24, 12, 13
+  orig: 217, 80
+  offset: 0, 0
+  index: -1
+banner
+  rotate: false
+  xy: 1, 1
+  size: 160, 26
+  orig: 160, 26
+  offset: 0, 0
+  index: -1
+
+pack2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+card/glow
+  rotate: false
+  xy: 1, 1
+  size: 93, 130
+  orig: 93, 130
+  offset: 0, 0
+  index: -1
+card/slash
+  rotate: false
+  xy: 96, 1
+  size: 93, 130
+  orig: 93, 130
+  offset: 0, 0
+  index: -1
+
+pack3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+player/default_general
+  rotate: false
+  xy: 1, 68
+  size: 200, 290
+  orig: 200, 290
+  offset: 0, 0
+  index: -1
+player/mask
+  rotate: false
+  xy: 203, 68
+  size: 200, 290
+  orig: 200, 290
+  offset: 0, 0
+  index: -1
+player/weapon
+  rotate: false
+  xy: 1, 33
+  size: 35, 33
+  orig: 35, 33
+  offset: 0, 0
+  index: -1
+player/horse
+  rotate: false
+  xy: 405, 327
+  size: 34, 31
+  orig: 34, 31
+  offset: 0, 0
+  index: -1
+player/magatama
+  rotate: false
+  xy: 1, 1
+  size: 33, 30
+  orig: 33, 30
+  offset: 0, 0
+  index: -1
+player/role
+  rotate: false
+  xy: 38, 36
+  size: 31, 30
+  orig: 31, 30
+  offset: 0, 0
+  index: -1
+player/armor
+  rotate: false
+  xy: 405, 296
+  size: 31, 29
+  orig: 31, 29
+  offset: 0, 0
+  index: -1
+player/hand
+  rotate: false
+  xy: 441, 331
+  size: 32, 27
+  orig: 32, 27
+  offset: 0, 0
+  index: -1

@@ -7,11 +7,14 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 public class PlayerEntityView extends Actor{
 
 	PlayerEntity player;
 	TextureRegion mask,general;
+	
+	Table[] props;
 	
 	public PlayerEntityView(PlayerEntity pe)
 	{
@@ -20,11 +23,40 @@ public class PlayerEntityView extends Actor{
 		
 		player = pe;
 		String general_path = player.child("general") == null ?
-				"default_general" : ((Entity)player.child("general")).type.fullName();
+				"player/default_general" : ((Entity)player.child("general")).type.fullName();
 		general = DefaultSkin.instance.getRegion(general_path);
-		mask  = DefaultSkin.instance.getRegion("character_mask");
+		mask  = DefaultSkin.instance.getRegion("player/mask");
 		this.setWidth(mask.getRegionWidth());
 		this.setHeight(mask.getRegionHeight());
+	
+		props = new Table[3];
+		
+		props[0] = new CollapsedPropertyView<PlayerEntity>(pe)
+		{
+			protected Object[] drawnObjects()
+			{
+				return new Object[]{ DefaultSkin.instance.getRegion("player/magatama"),
+						"x" + entity.hp};
+			}
+		};
+
+		props[1] = new CollapsedPropertyView<PlayerEntity>(pe)
+		{
+			protected Object[] drawnObjects()
+			{
+				return new Object[]{ DefaultSkin.instance.getRegion("player/hand"),
+						"x" + entity.child("hand").size()};
+			}
+		};
+		
+		props[2] = new CollapsedPropertyView<PlayerEntity>(pe)
+		{
+			protected Object[] drawnObjects()
+			{
+				return new Object[]{ DefaultSkin.instance.getRegion("player/role")
+						};
+			}
+		};
 	}
 	
 	public void draw (SpriteBatch batch, float parentAlpha) {
@@ -40,7 +72,7 @@ public class PlayerEntityView extends Actor{
 				this.getWidth() * this.getScaleX(),
 				this.getHeight() * this.getScaleY());
 		
-		batch.setBlendFunction(GL10.GL_ONE_MINUS_DST_ALPHA, GL10.GL_DST_ALPHA);
+		batch.setBlendFunction(GL10.GL_ONE_MINUS_DST_ALPHA, GL10.GL_ONE);
 		
 		batch.draw(general,
 				this.getX(),
@@ -49,5 +81,16 @@ public class PlayerEntityView extends Actor{
 				this.getHeight() * this.getScaleY());
 		
 		batch.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+		
+		float y_pos = 0;
+		float pad = 30f;
+		for(Table prop : props)
+		{
+			prop.setSize(this.getWidth(),this.getHeight());
+			prop.setPosition(this.getX() + this.getWidth(), this.getY() + y_pos);
+			prop.draw(batch, parentAlpha);
+			
+			y_pos += pad;
+		}
 	}
 }

@@ -25,7 +25,7 @@ public class CardEntityView extends Actor{
 		
 		card = ce;
 		image = DefaultSkin.instance.getRegion(card.type.fullName());
-		glow  = DefaultSkin.instance.getRegion("card_glow");
+		glow  = DefaultSkin.instance.getRegion("card/glow");
 		
 		this.addListener(cl = new ClickListener()
 		{
