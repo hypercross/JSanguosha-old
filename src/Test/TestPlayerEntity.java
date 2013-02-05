@@ -1,7 +1,7 @@
-package Test;
+package test;
 
-import Game.Entity.CardEntity;
-import Game.Entity.PlayerEntity;
+import game.entity.CardEntity;
+import game.entity.PlayerEntity;
 
 @SuppressWarnings("serial")
 public class TestPlayerEntity extends PlayerEntity{
