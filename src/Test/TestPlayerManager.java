@@ -1,6 +1,6 @@
-package Test;
+package test;
 
-import Game.PlayerManager;
+import game.PlayerManager;
 
 public class TestPlayerManager extends PlayerManager{
 	public TestPlayerManager()

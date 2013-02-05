@@ -1,17 +1,17 @@
-package Test;
+package test;
 
-import Game.ActionSet;
-import Game.ICard;
-import Game.Entity.CardEntity;
-import Game.Entity.GameEntity;
-import Game.Entity.PlayerEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
-import GameEvent.GameEvent;
-import GameEvent.StagedGameEvent;
-import Test.action.ActionPlay;
-import Test.event.GameEventDecision;
-import Test.event.GameEventPlay;
+import game.ActionSet;
+import game.ICard;
+import game.entity.CardEntity;
+import game.entity.GameEntity;
+import game.entity.PlayerEntity;
+import game.type.LinkedType;
+import game.type.Type;
+import gameEvent.GameEvent;
+import gameEvent.StagedGameEvent;
+import test.action.ActionPlay;
+import test.event.GameEventDecision;
+import test.event.GameEventPlay;
 
 public class CardSlash implements ICard{
 	public static Type typeCardSlash = new LinkedType("Slash",Type.CARD);

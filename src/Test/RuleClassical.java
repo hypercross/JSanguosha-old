@@ -1,9 +1,9 @@
-package Test;
+package test;
 
-import Game.Entity.Entity;
-import Game.Entity.GameEntity;
-import GameEvent.GameEvent;
-import GameEvent.IRule;
+import game.entity.Entity;
+import game.entity.GameEntity;
+import gameEvent.GameEvent;
+import gameEvent.IRule;
 
 public class RuleClassical implements IRule {
 

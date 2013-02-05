@@ -1,7 +1,7 @@
-package GameEvent;
+package gameEvent;
 
-import Game.Entity.GameEntity;
-import Game.Type.Type;
+import game.entity.GameEntity;
+import game.type.Type;
 
 public abstract class StagedGameEvent extends GameEvent {
 

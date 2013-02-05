@@ -1,8 +1,8 @@
-package Application.InGame;
+package application.inGame;
 
-import Game.Entity.Entity;
-import Game.Entity.GameEntity;
-import Game.Entity.PlayerEntity;
+import game.entity.Entity;
+import game.entity.GameEntity;
+import game.entity.PlayerEntity;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;

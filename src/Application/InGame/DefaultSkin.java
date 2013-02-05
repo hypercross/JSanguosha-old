@@ -1,7 +1,7 @@
-package Application.InGame;
+package application.inGame;
 
-import Test.CardDodge;
-import Test.CardSlash;
+import test.CardDodge;
+import test.CardSlash;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

@@ -1,6 +1,6 @@
-package Game;
+package game;
 
-import Game.Type.Type;
+import game.type.Type;
 
 public interface IPackage {
 

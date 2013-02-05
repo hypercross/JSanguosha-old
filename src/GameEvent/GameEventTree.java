@@ -1,4 +1,4 @@
-package GameEvent;
+package gameEvent;
 
 public class GameEventTree
 {

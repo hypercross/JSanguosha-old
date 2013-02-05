@@ -1,13 +1,13 @@
-package Test;
+package test;
 
-import Game.Environment;
-import Game.ICard;
-import Game.IPlayer;
-import Game.Entity.CardEntity;
-import Game.Entity.CardSlotEntity;
-import Game.Entity.GameEntity;
-import Game.Entity.PlayerEntity;
-import Test.event.GameEventTurnLoop;
+import game.Environment;
+import game.ICard;
+import game.IPlayer;
+import game.entity.CardEntity;
+import game.entity.CardSlotEntity;
+import game.entity.GameEntity;
+import game.entity.PlayerEntity;
+import test.event.GameEventTurnLoop;
 
 public class TestEnvironment extends Environment{
 	

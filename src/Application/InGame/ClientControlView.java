@@ -1,11 +1,11 @@
-package Application.InGame;
+package application.inGame;
 
 import javax.sound.sampled.Control.Type;
 
-import Game.ActionSet;
-import Game.Entity.CardEntity;
-import Game.Entity.Entity;
-import Game.Entity.PlayerEntity;
+import game.ActionSet;
+import game.entity.CardEntity;
+import game.entity.Entity;
+import game.entity.PlayerEntity;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;

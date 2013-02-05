@@ -1,4 +1,4 @@
-package Game.Entity;
+package game.entity;
 
 @SuppressWarnings("serial")
 public class PlayerEntity extends Entity{

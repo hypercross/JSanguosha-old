@@ -1,4 +1,4 @@
-package Game.Entity;
+package game.entity;
 
 import java.util.Collections;
 

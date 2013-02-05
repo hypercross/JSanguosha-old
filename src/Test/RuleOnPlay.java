@@ -1,10 +1,10 @@
-package Test;
+package test;
 
-import Game.Entity.CardEntity;
-import Game.Entity.Entity;
-import GameEvent.GameEvent;
-import GameEvent.IRule;
-import Test.event.GameEventPlay;
+import game.entity.CardEntity;
+import game.entity.Entity;
+import gameEvent.GameEvent;
+import gameEvent.IRule;
+import test.event.GameEventPlay;
 
 public abstract class RuleOnPlay implements IRule{
 	CardEntity owner;

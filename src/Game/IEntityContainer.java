@@ -1,8 +1,8 @@
-package Game;
+package game;
 
 import java.util.List;
 
-import Game.Entity.Entity;
+import game.entity.Entity;
 
 public interface IEntityContainer extends List<Entity>{
 	

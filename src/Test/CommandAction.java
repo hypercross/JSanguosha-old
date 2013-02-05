@@ -1,13 +1,13 @@
-package Test;
+package test;
 
 import java.util.HashMap;
 
-import Game.Action;
-import Game.IEntityContainer;
-import Game.Entity.Entity;
-import Game.Entity.GameEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
+import game.Action;
+import game.IEntityContainer;
+import game.entity.Entity;
+import game.entity.GameEntity;
+import game.type.LinkedType;
+import game.type.Type;
 
 public class CommandAction extends Action{
 

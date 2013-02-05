@@ -1,9 +1,9 @@
-package Game;
+package game;
 
-import Game.Type.Type;
-import Test.CardDodge;
-import Test.CardSlash;
-import Test.action.ActionPlay;
+import game.type.Type;
+import test.CardDodge;
+import test.CardSlash;
+import test.action.ActionPlay;
 
 public abstract class ActionSet {
 	

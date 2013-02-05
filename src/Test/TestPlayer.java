@@ -1,13 +1,13 @@
-package Test;
+package test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import Game.Action;
-import Game.ActionSet;
-import Game.IPlayer;
-import Game.Type.Type;
+import game.Action;
+import game.ActionSet;
+import game.IPlayer;
+import game.type.Type;
 
 public class TestPlayer implements IPlayer{
 

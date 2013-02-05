@@ -1,8 +1,8 @@
-package Game;
+package game;
 
 import java.util.ArrayList;
 
-import Game.Entity.PlayerEntity;
+import game.entity.PlayerEntity;
 
 public class PlayerManager {
 

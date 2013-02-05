@@ -1,9 +1,9 @@
-package Game;
+package game;
 
 import java.util.HashMap;
 
-import Game.Entity.CardSlotEntity;
-import Game.Entity.GameEntity;
+import game.entity.CardSlotEntity;
+import game.entity.GameEntity;
 
 public class Environment {
 	public HashMap<String, IPackage> packages = new HashMap<String, IPackage>();

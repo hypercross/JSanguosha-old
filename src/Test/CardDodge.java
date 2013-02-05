@@ -1,9 +1,9 @@
-package Test;
+package test;
 
-import Game.ICard;
-import Game.Entity.CardEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
+import game.ICard;
+import game.entity.CardEntity;
+import game.type.LinkedType;
+import game.type.Type;
 
 public class CardDodge implements ICard{
 	public static Type typeDodge = new LinkedType("Dodge", Type.CARD);

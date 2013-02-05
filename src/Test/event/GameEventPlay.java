@@ -1,11 +1,11 @@
-package Test.event;
+package test.event;
 
-import Game.Entity.GameEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
-import GameEvent.GameEvent;
-import GameEvent.StagedGameEvent;
-import Test.action.ActionPlay;
+import game.entity.GameEntity;
+import game.type.LinkedType;
+import game.type.Type;
+import gameEvent.GameEvent;
+import gameEvent.StagedGameEvent;
+import test.action.ActionPlay;
 
 public class GameEventPlay extends StagedGameEvent
 {

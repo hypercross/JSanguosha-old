@@ -1,10 +1,10 @@
-package Test.action;
+package test.action;
 
-import Game.Action;
-import Game.Entity.CardEntity;
-import Game.Entity.PlayerEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
+import game.Action;
+import game.entity.CardEntity;
+import game.entity.PlayerEntity;
+import game.type.LinkedType;
+import game.type.Type;
 
 public class ActionPlay extends Action{
 	public static Type ACTION_PLAY = new LinkedType("Play", Type.EVENT_DECISION);

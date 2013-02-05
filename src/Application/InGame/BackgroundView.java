@@ -1,4 +1,4 @@
-package Application.InGame;
+package application.inGame;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;

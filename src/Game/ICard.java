@@ -1,7 +1,7 @@
-package Game;
+package game;
 
-import Game.Entity.CardEntity;
-import Game.Type.Type;
+import game.entity.CardEntity;
+import game.type.Type;
 
 public interface ICard {
 

@@ -1,11 +1,11 @@
-package Test.event;
+package test.event;
 
-import Game.IPlayer;
-import Game.Entity.GameEntity;
-import Game.Entity.PlayerEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
-import GameEvent.GameEvent;
+import game.IPlayer;
+import game.entity.GameEntity;
+import game.entity.PlayerEntity;
+import game.type.LinkedType;
+import game.type.Type;
+import gameEvent.GameEvent;
 
 public class GameEventTurnLoop extends GameEvent{
 	public static Type EVENT_TURN = new LinkedType("Turn",Type.EVENT_PHRASE);

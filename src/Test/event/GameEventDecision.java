@@ -1,11 +1,11 @@
-package Test.event;
+package test.event;
 
-import Game.Action;
-import Game.ActionSet;
-import Game.Entity.PlayerEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
-import GameEvent.GameEvent;
+import game.Action;
+import game.ActionSet;
+import game.entity.PlayerEntity;
+import game.type.LinkedType;
+import game.type.Type;
+import gameEvent.GameEvent;
 
 public class GameEventDecision extends GameEvent
 {

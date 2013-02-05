@@ -1,21 +1,16 @@
-package Application;
+package application;
 
 import java.util.ArrayList;
 
-import Application.InGame.BackgroundView;
-import Application.InGame.CardEntityView;
-import Application.InGame.ClientControlView;
-import Application.InGame.DefaultSkin;
-import Application.InGame.EntityInfoLabel;
-import Application.InGame.PlayerEntityView;
-import Game.IPlayer;
-import Game.Entity.CardEntity;
-import Game.Entity.GameEntity;
-import Game.Entity.PlayerEntity;
-import Test.CardSlash;
-import Test.TestEnvironment;
-import Test.TestPlayerEntity;
-import Test.TestPlayerManager;
+import application.inGame.BackgroundView;
+import application.inGame.ClientControlView;
+import application.inGame.EntityInfoLabel;
+import game.IPlayer;
+import game.entity.GameEntity;
+import game.entity.PlayerEntity;
+import test.TestEnvironment;
+import test.TestPlayerEntity;
+import test.TestPlayerManager;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -23,8 +18,6 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class JSanguosha implements ApplicationListener {

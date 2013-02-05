@@ -1,6 +1,6 @@
-package GameEvent;
+package gameEvent;
 
-import Game.Entity.Entity;
+import game.entity.Entity;
 
 public interface IRule {
 	

@@ -1,4 +1,4 @@
-package Game.Type;
+package game.type;
 
 public class Type {
 

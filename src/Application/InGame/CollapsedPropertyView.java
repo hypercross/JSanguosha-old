@@ -1,6 +1,6 @@
-package Application.InGame;
+package application.inGame;
 
-import Game.Entity.Entity;
+import game.entity.Entity;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;

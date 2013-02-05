@@ -1,12 +1,12 @@
-package Game.Entity;
+package game.entity;
 
-import Game.Environment;
-import Game.IPlayer;
-import Game.PlayerManager;
-import Game.Type.Type;
-import GameEvent.GameEvent;
-import GameEvent.GameEventTree;
-import GameEvent.RuleRegistry;
+import game.Environment;
+import game.IPlayer;
+import game.PlayerManager;
+import game.type.Type;
+import gameEvent.GameEvent;
+import gameEvent.GameEventTree;
+import gameEvent.RuleRegistry;
 
 @SuppressWarnings("serial")
 public class GameEntity extends Entity{

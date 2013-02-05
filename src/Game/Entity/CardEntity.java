@@ -1,6 +1,6 @@
-package Game.Entity;
+package game.entity;
 
-import Game.ICard;
+import game.ICard;
 
 @SuppressWarnings("serial")
 public class CardEntity extends Entity{

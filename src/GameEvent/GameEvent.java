@@ -1,9 +1,9 @@
-package GameEvent;
+package gameEvent;
 
 import java.util.ArrayList;
 
-import Game.Entity.GameEntity;
-import Game.Type.Type;
+import game.entity.GameEntity;
+import game.type.Type;
 
 public abstract class GameEvent {
 

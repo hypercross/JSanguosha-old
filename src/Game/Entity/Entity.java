@@ -1,10 +1,10 @@
-package Game.Entity;
+package game.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import Game.IEntityContainer;
-import Game.Type.Type;
+import game.IEntityContainer;
+import game.type.Type;
 
 @SuppressWarnings("serial")
 public class Entity extends ArrayList<Entity> implements IEntityContainer{

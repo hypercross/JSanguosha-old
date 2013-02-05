@@ -1,12 +1,12 @@
-package Test.event;
+package test.event;
 
-import Game.Entity.CardEntity;
-import Game.Entity.CardSlotEntity;
-import Game.Entity.GameEntity;
-import Game.Entity.PlayerEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
-import GameEvent.GameEvent;
+import game.entity.CardEntity;
+import game.entity.CardSlotEntity;
+import game.entity.GameEntity;
+import game.entity.PlayerEntity;
+import game.type.LinkedType;
+import game.type.Type;
+import gameEvent.GameEvent;
 
 public class GameEventCardMove extends GameEvent{
 	public static Type EVENT_MOVE = new LinkedType("CardMove", Type.EVENT_ENTITY);

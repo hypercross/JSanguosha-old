@@ -1,12 +1,12 @@
-package Test.event;
+package test.event;
 
-import Game.Entity.CardEntity;
-import Game.Entity.GameEntity;
-import Game.Entity.PlayerEntity;
-import Game.Type.LinkedType;
-import Game.Type.Type;
-import GameEvent.GameEvent;
-import GameEvent.StagedGameEvent;
+import game.entity.CardEntity;
+import game.entity.GameEntity;
+import game.entity.PlayerEntity;
+import game.type.LinkedType;
+import game.type.Type;
+import gameEvent.GameEvent;
+import gameEvent.StagedGameEvent;
 
 public class GameEventPhrase extends StagedGameEvent{
 	public static Type EVENT_PHRASE = new LinkedType("Phrase",Type.EVENT_PHRASE);

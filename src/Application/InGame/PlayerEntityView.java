@@ -1,7 +1,7 @@
-package Application.InGame;
+package application.inGame;
 
-import Game.Entity.Entity;
-import Game.Entity.PlayerEntity;
+import game.entity.Entity;
+import game.entity.PlayerEntity;
 
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
