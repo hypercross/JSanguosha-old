@@ -14,7 +14,7 @@ public class Selectable{
 	public boolean isSelected = false;
 	
 	private float r=1f,g=1f,b=1f;
-	private TextureRegion glow;
+	private TextureRegion glow,border;
 	private float intensity = 0f;
 	
 	private static int DURATION = 300;
@@ -29,6 +29,7 @@ public class Selectable{
 					isSelected = !isSelected;
 			}
 		});
+		glow = DefaultSkin.instance.getRegion("glow");
 	}
 	
 	public void setColor(float r,float g,float b)
@@ -36,6 +37,11 @@ public class Selectable{
 		this.r = r;
 		this.g = g;
 		this.b = b;
+	}
+	
+	public void setTexture(TextureRegion tr)
+	{
+		border = tr;
 	}
 	
 	public void draw (Actor actor, SpriteBatch batch, float parentAlpha) {
@@ -52,7 +58,6 @@ public class Selectable{
 		}
 		
 		batch.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE);
-		glow = DefaultSkin.instance.getRegion("glow");
 		batch.setColor(r,g,b, OPACITY * intensity);
 		batch.draw(glow,
 				actor.getX(),
@@ -65,7 +70,13 @@ public class Selectable{
 		{
 			batch.setColor(r,g,b, 1f);
 			
+			if(border == null)
 			DefaultSkin.instance.getPatch("border").draw(batch,
+					actor.getX(),
+					actor.getY(),
+					actor.getWidth(),
+					actor.getHeight());
+			else batch.draw(border,
 					actor.getX(),
 					actor.getY(),
 					actor.getWidth(),

@@ -48,23 +48,51 @@ filter: Nearest,Nearest
 repeat: none
 card/dodge
   rotate: false
-  xy: 1, 265
+  xy: 1, 325
   size: 93, 130
   orig: 93, 130
   offset: 0, 0
   index: -1
 card/glow
   rotate: false
-  xy: 1, 133
+  xy: 1, 193
   size: 93, 130
   orig: 93, 130
   offset: 0, 0
   index: -1
 card/slash
   rotate: false
-  xy: 1, 1
+  xy: 1, 61
   size: 93, 130
   orig: 93, 130
+  offset: 0, 0
+  index: -1
+card/club
+  rotate: false
+  xy: 96, 427
+  size: 27, 28
+  orig: 27, 28
+  offset: 0, 0
+  index: -1
+card/diamond
+  rotate: false
+  xy: 1, 31
+  size: 27, 28
+  orig: 27, 28
+  offset: 0, 0
+  index: -1
+card/heart
+  rotate: false
+  xy: 96, 397
+  size: 27, 28
+  orig: 27, 28
+  offset: 0, 0
+  index: -1
+card/spade
+  rotate: false
+  xy: 1, 1
+  size: 27, 28
+  orig: 27, 28
   offset: 0, 0
   index: -1
 

@@ -33,6 +33,8 @@ public class DefaultSkin extends Skin{
 		
 		ButtonStyle bs = new ButtonStyle();
 		bs.up = this.getDrawable("banner");
+		bs.pressedOffsetX = 1;
+		bs.pressedOffsetY = -1;
 		this.add("default", bs);
 		
 		TextField.TextFieldStyle tfs = new TextField.TextFieldStyle();
