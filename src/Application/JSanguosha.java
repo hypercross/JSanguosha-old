@@ -14,6 +14,7 @@ import Game.Entity.GameEntity;
 import Game.Entity.PlayerEntity;
 import Test.CardSlash;
 import Test.TestEnvironment;
+import Test.TestPlayerEntity;
 import Test.TestPlayerManager;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -35,9 +36,11 @@ public class JSanguosha implements ApplicationListener {
 
 	public void create () {
     	 stage = new Stage();
+    	 stage.setViewport(1280, 800, false);
          Gdx.input.setInputProcessor(stage);
          bv = new BackgroundView();
          stage.addActor(bv);
+         bv.layout();
          
          Table table = new Table();
          table.setFillParent(true);
@@ -74,30 +77,16 @@ public class JSanguosha implements ApplicationListener {
         	 EntityInfoLabel label = new EntityInfoLabel(player);
         	 labels.add(label);
         	 table.add(label);
-        	 
-        	 stage.addActor(new PlayerEntityView(player));
          }
          
          table.row();
-         
-         TextField tf = 
-         new TextField("", DefaultSkin.instance);
-         
-         tf.setTextFieldListener(new TextFieldListener() {
-			public void keyTyped (TextField textField, char key) {
-				if (key == '\r') textField.setText("");
-			}
-		});
-         
-         table.add(tf).width(300);
-         
-         stage.addActor(new CardEntityView(new CardEntity(0, 0, 'C', new CardSlash())));
-         stage.addActor(new ClientControlView((PlayerEntity) ge.child("player" + 0)));
+         ClientControlView ccv = new ClientControlView(new TestPlayerEntity());
+         stage.addActor(ccv);
+         ccv.layout();
     }
 
 	public void resize (int width, int height) {
-        stage.setViewport(width, height, true);
-        bv.setSize(width, height);
+        stage.setViewport(width, height, false);
 }
 
 public void render () {

@@ -61,18 +61,23 @@ public class PlayerEntityView extends Group{
 		};
 		
 		float y_pos = 90;
+		float x_pos = 0;
 		float pad = 30f;
 		for(Table prop : props)
 		{
 			this.addActor(prop);
-			prop.setSize(this.getWidth(),30f);
-			prop.setPosition(this.getWidth(),y_pos);
-			y_pos += pad;
+			prop.setSize(this.getWidth()/2,30f);
+			prop.setPosition(x_pos,y_pos);
+			y_pos -= pad;
+			if(y_pos < 0)
+			{
+				y_pos = 90;
+				x_pos = this.getWidth()/2;
+			}
 		}
 	}
 	
 	public void draw (SpriteBatch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
 		
 		batch.enableBlending();
 		batch.setColor(1f,1f,1f,1f);
@@ -95,5 +100,6 @@ public class PlayerEntityView extends Group{
 
 		batch.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
 		selectable.draw(this,batch,parentAlpha);
+		super.draw(batch, parentAlpha);
 	}
 }

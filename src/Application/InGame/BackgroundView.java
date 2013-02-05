@@ -13,4 +13,10 @@ public class BackgroundView extends Actor{
 				this.getWidth(),
 				this.getHeight());
 	}
+	
+	public void layout()
+	{
+		this.setPosition(0,0);
+		this.setSize(this.getStage().getWidth(), this.getStage().getHeight());
+	}
 }

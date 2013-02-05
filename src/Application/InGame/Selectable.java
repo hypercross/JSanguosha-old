@@ -18,7 +18,7 @@ public class Selectable{
 	private float intensity = 0f;
 	
 	private static int DURATION = 300;
-	private static float OPACITY = 0.3f;
+	private static float OPACITY = 0.12f;
 	
 	public Selectable(Actor actor)
 	{
@@ -60,6 +60,17 @@ public class Selectable{
 				actor.getWidth(),
 				actor.getHeight());
 		batch.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+		
+		if(isSelected)
+		{
+			batch.setColor(r,g,b, 1f);
+			
+			DefaultSkin.instance.getPatch("border").draw(batch,
+					actor.getX(),
+					actor.getY(),
+					actor.getWidth(),
+					actor.getHeight());
+		}
 	}
 
 }
